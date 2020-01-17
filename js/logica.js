@@ -1,18 +1,27 @@
-const pasados = document.getElementById('pasados') 
-const futuros = document.getElementById('proximos')
-const detalle = document.getElementById('evento') 
-const lugar=location.href
-let detalleEvento = document.getElementById('detalleEvento')
-
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
+function SearchData(data) {
+  let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-     console.log('genio de lampara')
-    }
+          let respond = this.responseText
+          
+        }
   };
-  xhttp.open("GET", "info.json", true);
+  xhttp.open("GET", data , true);
   xhttp.send();
+  
 }
-loadDoc()
 
+SearchData("info.json")
+
+
+
+
+// return new promise((resolver, reject) => {
+//   if (this.readyState == 4 && this.status == 200) {
+//     Console.log('hi')
+//     resolver('true')
+//   } else {
+//     reject('error')
+//     Console.log('ooooOoo')
+//   }
+// })
