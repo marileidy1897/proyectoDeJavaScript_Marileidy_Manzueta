@@ -106,4 +106,23 @@ function  crearEvento(evento,lugar){
   contenedor_evento.appendChild(evento_costo);
  
 }
+const BuscarUsuario =  () => { 
+  return new Promise((resolve, reject) => {
+    let conectado = localStorage.getItem("FormularioRegistroTemporal");
+    (conectado)
+      ?resolve(conectado)
+      :reject(new Error('No esta conectado') )
+    
+  })
+}
+const usuario = async () => {
+  try {
+    const nombreUsuario = await BuscarUsuario()
+    document.getElementById("user").innerHTML = nombreUsuario;
+  } catch (error) {
+    console.log(error)
+  }
+  
+}
 SearchData("info.json")
+usuario()
