@@ -124,5 +124,6 @@ const usuario = async () => {
   }
   
 }
+
 SearchData("https://marileidy1897.github.io/proyectoDeJavaScript_Marileidy_Manzueta/info.json")
 usuario()
