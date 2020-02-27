@@ -1,17 +1,21 @@
 const pasados = document.getElementById('pasados') 
 const futuros = document.getElementById('proximos')
 const detalle = document.getElementById('evento') 
-const lugar=location.pathname
+const lugar=location.pathname.replace(/\/proyectoDeJavaScript_Marileidy_Manzueta/g,"");
+console.log(lugar);
+
 let detalleEvento = document.getElementById('detalleEvento')
 function SearchData(data) {
   let xhttp = new XMLHttpRequest();
+  xhttp.open("GET", data , true);
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         let respond = this.responseText
           cargarData(respond)
+          // console.log(respond)
         }
   };
-  xhttp.open("GET", data , true);
+  
   xhttp.send();
 }
 function cargarData(info){
@@ -125,5 +129,5 @@ const usuario = async () => {
   
 }
 
-SearchData("https://marileidy1897.github.io/proyectoDeJavaScript_Marileidy_Manzueta/info.json")
+SearchData("./info.json")
 usuario()
