@@ -22,9 +22,10 @@ function cargarData(info){
         let eventos=respuesta.eventos
         let search = location.search
         let index = '/index.html';
-        if (lugar == '/'  ) {
-          window.location.href =index
+        if (lugar == '/') {
+            location.pathname=index
         }
+        console.log(index);
         eventos.sort(function(a, b) {
           var c = new Date(a.fecha);
           var d = new Date(b.fecha);
