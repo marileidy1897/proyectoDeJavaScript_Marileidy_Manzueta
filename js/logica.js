@@ -1,8 +1,7 @@
 const pasados = document.getElementById('pasados') 
 const futuros = document.getElementById('proximos')
 const detalle = document.getElementById('evento') 
-const lugar=location.pathname.replace(/\/proyectoDeJavaScript_Marileidy_Manzueta/g,"");
-console.log(lugar);
+const lugar = location.pathname.replace(/\/proyectoDeJavaScript_Marileidy_Manzueta/g, "");
 
 let detalleEvento = document.getElementById('detalleEvento')
 function SearchData(data) {
@@ -12,7 +11,6 @@ function SearchData(data) {
     if (this.readyState == 4 && this.status == 200) {
         let respond = this.responseText
           cargarData(respond)
-          // console.log(respond)
         }
   };
   
@@ -22,8 +20,11 @@ function cargarData(info){
         respuesta= JSON.parse(info);
         let fechaActual=respuesta.fechaActual
         let eventos=respuesta.eventos
-        let search =location.search
-        let index ='/index.html'
+        let search = location.search
+        let index = '/index.html';
+        if (lugar == '/'  ) {
+          window.location.href =index
+        }
         eventos.sort(function(a, b) {
           var c = new Date(a.fecha);
           var d = new Date(b.fecha);
