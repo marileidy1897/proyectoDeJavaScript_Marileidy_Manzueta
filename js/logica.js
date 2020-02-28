@@ -129,5 +129,5 @@ const usuario = async () => {
   
 }
 
-SearchData("./info.json")
+SearchData("info.json")
 usuario()
